@@ -35,10 +35,10 @@ let restartmsg;
 let gamepaused = false;
 
 function preload() {
-  this.load.image('ball', '../assets/ball.png');
-  this.load.image('paddle1', '../assets/pad1.png');
-  this.load.image('paddle2', '../assets/pad2.png');
-  this.load.image('bar', '../assets/bar.png');
+  this.load.image('ball', './assets/ball.png');
+  this.load.image('paddle1', './assets/pad1.png');
+  this.load.image('paddle2', './assets/pad2.png');
+  this.load.image('bar', './assets/bar.png');
 
 }
 
