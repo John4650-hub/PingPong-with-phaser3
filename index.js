@@ -89,9 +89,10 @@ function create() {
 
   restartmsg = this.add.text(this.physics.world.bounds.width / 12, this.physics.world.bounds.height / 2, 'click to restart')
   restartmsg.setScale(6);
-  console.log(game.loop.actualFps)
   restartmsg.setVisible(false);
+  /*
   this.time.addEvent({
+    delay:100
     callback:()=>{
       this.renderer.snapshot(img=>{
       const snap = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
@@ -115,8 +116,8 @@ function create() {
       })
     },
     callbackScope:this,
-    repeat:30
-  });
+    repeat:500
+  });**/
 }
 
 function update() {
@@ -141,8 +142,8 @@ function update() {
   }
 
   if (!(gameStarted)) {
-    let initVelocityX = (Math.random() * 150) + 100;
-    let initVelocityY = (Math.random() * 150) + 100;
+    let initVelocityX = (Math.random() * 1500) + 100;
+    let initVelocityY = (Math.random() * 1500) + 100;
     ball.setVelocityX(initVelocityX);
     ball.setVelocityY(initVelocityY);
     gameStarted = true;
@@ -162,6 +163,13 @@ function update() {
   }
   if (ball.body.velocity.y < paddleSpeed) {
     ball.body.setVelocityY(-paddleSpeed)
+  }
+//comment out the block below to disable auto player
+if (ball.y > bar.y - 100) {
+
+    pad1.x = ball.x;
+    pad1.setVelocityX(100)
+
   }
   if (ball.y < bar.y - 100) {
 
