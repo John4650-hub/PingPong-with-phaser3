@@ -36,7 +36,7 @@ try:
     screenshot_path = os.path.join(download_dir, 'screenshot.png')
     canvas_element = driver.find_element(By.TAG_NAME, 'canvas')
 
-    canvas_element.save_screenshot(screenshot_path);
+    canvas_element.screenshot(screenshot_path);
 finally:
     # Close the browser
     driver.quit()
