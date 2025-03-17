@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 import time
 import os
 
@@ -33,7 +34,9 @@ try:
     # Interact with the app (e.g., wait for 2 minutes)
     time.sleep(10)  # Wait for 2 minutes
     screenshot_path = os.path.join(download_dir, 'screenshot.png')
-    driver.save_screenshot(screenshot_path);
+    canvas_element = driver.find_element(By.TAG_NAME, 'canvas')
+
+    canvas_element.save_screenshot(screenshot_path);
 finally:
     # Close the browser
     driver.quit()
