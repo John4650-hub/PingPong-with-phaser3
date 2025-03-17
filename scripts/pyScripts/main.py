@@ -38,7 +38,7 @@ try:
         while True:
             time.sleep(5)
             entries = os.listdir(download_dir)
-            print(entries)
+            print(entries[::-1][0:5])
             if "end.png" in entries:
                 break
 
