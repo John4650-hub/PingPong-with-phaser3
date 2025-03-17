@@ -19,6 +19,9 @@ jobs:
       with:
         node-version: '18'
 
+    - name: install ffmpeg
+      uses: AnimMouse/setup-ffmpeg@v1
+
     - name: Install dependencies
       run: npm install http-server
 
