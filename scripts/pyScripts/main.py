@@ -32,6 +32,7 @@ try:
 
     # Interact with the app (e.g., wait for 2 minutes)
     time.sleep(10)  # Wait for 2 minutes
+    driver.save_screenshot(download_dir);
 finally:
     # Close the browser
     driver.quit()
