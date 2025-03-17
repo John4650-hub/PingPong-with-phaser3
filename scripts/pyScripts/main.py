@@ -19,7 +19,9 @@ prefs = {
     'download.default_directory': download_dir,
     'download.prompt_for_download': False,
     'download.directory_upgrade': True,
-    'safebrowsing.enabled': True
+    'safebrowsing.enabled': True,
+    'profile.default_content_settings.popups': 0,
+    'profile.content_settings.exceptions.automatic_downloads.*.setting': 1
 }
 chrome_options.add_experimental_option('prefs', prefs)
 

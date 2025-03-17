@@ -33,7 +33,7 @@ let victoryTxt2;
 let score2 = 0;
 let restartmsg;
 let gamepaused = false;
-let imgCount=0;
+let imageCount=0;
 
 function preload() {
   this.load.image('ball', './assets/ball.png');
@@ -90,11 +90,12 @@ function create() {
   restartmsg = this.add.text(this.physics.world.bounds.width / 12, this.physics.world.bounds.height / 2, 'click to restart')
   restartmsg.setScale(6);
   restartmsg.setVisible(false);
+
+  const snap = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
   this.time.addEvent({
     delay:100,
     callback:()=>{
       this.renderer.snapshot(img=>{
-      const snap = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
       snap.draw(0,0,img);
       const base64= snap.canvas.toDataURL();
       const binString = atob(base64.split(',')[1])
@@ -110,7 +111,7 @@ function create() {
         a.download=`frame${imageCount}.png`
         document.body.appendChild(a)
         a.click()
-        imgCount+=1;
+        imageCount+=1;
         URL.revokeObjectURL(url)
       })
     },
