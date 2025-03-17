@@ -34,7 +34,7 @@ try:
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
     # List all entries in the directory
-    time.sleep(180)
+    time.sleep(3*60)
 
 finally:
     # Close the browser
