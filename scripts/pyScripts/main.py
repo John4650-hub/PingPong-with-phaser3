@@ -36,6 +36,7 @@ try:
     while True:
         # List all entries in the directory
         entries = os.listdir(download_dir)
+        print(entries)
         if "end.png" in entries:
             break
 finally:

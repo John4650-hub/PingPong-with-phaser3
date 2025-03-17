@@ -99,7 +99,7 @@ function create() {
       downloadSnap(this,snap,screenshot_name)
       imageCount+=1
       if(imageCount>400){
-gamepaused=true
+        gamepaused=true
       }
   i  },
     callbackScope:this,
