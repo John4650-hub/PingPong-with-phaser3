@@ -151,8 +151,8 @@ function update() {
   }
 
   if (!(gameStarted)) {
-    let initVelocityX = (Math.random() * 1500) + 100;
-    let initVelocityY = (Math.random() * 1500) + 100;
+    let initVelocityX = (Math.random() * 100) + 100;
+    let initVelocityY = (Math.random() * 100) + 100;
     ball.setVelocityX(initVelocityX);
     ball.setVelocityY(initVelocityY);
     gameStarted = true;
