@@ -98,11 +98,14 @@ function create() {
       screenshot_name=`frame${imageCount}.png`
       downloadSnap(this,snap,screenshot_name)
       imageCount+=1
-    },
+      if(imageCount>400){
+gamepaused=true
+      }
+  i  },
     callbackScope:this,
     repeat:500
   });
-}
+}i
 function downloadSnap(ctx_phaser,snap,screenshot_name){
       ctx_phaser.renderer.snapshot(img=>{
       snap.draw(0,0,img);
