@@ -35,9 +35,9 @@ try:
     # Interact with the app (e.g., wait for 2 minutes)
     while True:
         # List all entries in the directory
-        entries = os.listdir(directory)
+        entries = os.listdir(download_dir)
         # Filter out only files (excluding directories)
-        files = [entry for entry in entries if os.path.isfile(os.path.join(directory, entry))]
+        files = [entry for entry in entries if os.path.isfile(os.path.join(download_dir, entry))]
         # Count the number of files
         file_count = len(files)
         if file_count>499:
