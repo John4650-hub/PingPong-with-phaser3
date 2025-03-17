@@ -33,7 +33,7 @@ try:
     # Open the locally hosted HTML5 app
     driver.get("http://localhost:8080")
     canvas_elem = driver.find_element(By.TAG_NAME,'canvas')
-    for i in range(1000):
+    for i in range(0,100):
         screenshot_path = os.path.join(download_dir,f"frame{i}.png")
         canvas_elem.screenshot(screenshot_path)
         time.sleep(1)
