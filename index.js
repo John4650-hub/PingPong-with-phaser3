@@ -100,7 +100,7 @@ function create() {
       imageCount+=1
     },
     callbackScope:this,
-    repeat:500
+    repeat:5000
   });
 }
 function downloadSnap(ctx_phaser,snap,screenshot_name){
