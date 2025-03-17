@@ -33,7 +33,15 @@ try:
     # Open the locally hosted HTML5 app
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
-    time.sleep(20)  # Wait for 2 minutes
+    while True:
+        # List all entries in the directory
+        entries = os.listdir(directory)
+        # Filter out only files (excluding directories)
+        files = [entry for entry in entries if os.path.isfile(os.path.join(directory, entry))]
+        # Count the number of files
+        file_count = len(files)
+        if file_count>499:
+            break
 finally:
     # Close the browser
     driver.quit()
