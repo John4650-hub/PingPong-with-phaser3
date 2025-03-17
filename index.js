@@ -95,7 +95,7 @@ function create() {
   this.time.addEvent({
     delay:100,
     callback:()=>{
-      screenshot_name=`frame${imageCount}.png`
+      let screenshot_name=`frame${imageCount}.png`
       downloadSnap(this,snap,screenshot_name)
       imageCount+=1
       if(imageCount>400){
@@ -107,7 +107,7 @@ function create() {
   });
 }i
 function downloadSnap(ctx_phaser,snap,screenshot_name){
-      ctx_phaser.renderer.snapshot(img=>{
+      ctix_phaser.renderer.snapshot(img=>{
       snap.draw(0,0,img);
       const base64= snap.canvas.toDataURL();
       const binString = atob(base64.split(',')[1])
