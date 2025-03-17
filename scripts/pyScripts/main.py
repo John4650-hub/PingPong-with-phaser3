@@ -34,12 +34,7 @@ try:
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
     # List all entries in the directory
-    if True:
-        while True:
-            time.sleep(5)
-            entries = os.listdir(download_dir)
-            if len(entries)>400:
-                break
+    time.sleep(100)
 
 finally:
     # Close the browser

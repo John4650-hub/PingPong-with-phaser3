@@ -98,9 +98,6 @@ function create() {
       let screenshot_name=`frame${imageCount}.png`
       downloadSnap(this,snap,screenshot_name)
       imageCount+=1
-      if(imageCount>400){
-        gamepaused=true
-      }
     },
     callbackScope:this,
     repeat:500
