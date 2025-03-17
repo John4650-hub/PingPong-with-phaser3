@@ -33,12 +33,11 @@ try:
     # Open the locally hosted HTML5 app
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
-    while True:
-        # List all entries in the directory
-        entries = os.listdir(download_dir)
-        print(entries)
-        if "end.png" in entries:
-            break
+    # List all entries in the directory
+    time.sleep(60)
+    entries = os.listdir(download_dir)
+    print(entries)
+
 finally:
     # Close the browser
     driver.quit()
