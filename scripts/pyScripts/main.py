@@ -29,18 +29,13 @@ chrome_options.add_experimental_option('prefs', prefs)
 chrome_service = Service('/usr/bin/chromedriver')
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-try:
-    # Open the locally hosted HTML5 app
-    driver.get("http://localhost:8080")
-    canvas_elem = driver.find_element(By.TAG_NAME,'canvas')
-    duration_minutes = 0.5
-    video_duration_sec = 60*duration_minutes
-    frames = int(30*video_duration_sec)
-    for i in range(1,frames+1):
-        screenshot_path = os.path.join(download_dir,f"frame{i}.png")
-        canvas_elem.screenshot(screenshot_path)
-        time.sleep(1)
-
-finally:
-    # Close the browser
-    driver.quit()
+driver.get("http://localhost:8080")
+canvas_elem = driver.find_element(By.TAG_NAME,'canvas')
+duration_minutes = 0.5
+video_duration_sec = 60*duration_minutes
+frames = int(30*video_duration_sec)
+for i in range(1,frames+1):
+    screenshot_path = os.path.join(download_dir,f"frame{i}.png")
+    canvas_elem.screenshot(screenshot_path)
+    time.sleep(1)
+driver.quit()
