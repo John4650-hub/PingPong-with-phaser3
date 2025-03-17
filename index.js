@@ -101,13 +101,13 @@ function create() {
       if(imageCount>400){
         gamepaused=true
       }
-  i  },
+    },
     callbackScope:this,
     repeat:500
   });
-}i
+}
 function downloadSnap(ctx_phaser,snap,screenshot_name){
-      ctix_phaser.renderer.snapshot(img=>{
+      ctx_phaser.renderer.snapshot(img=>{
       snap.draw(0,0,img);
       const base64= snap.canvas.toDataURL();
       const binString = atob(base64.split(',')[1])
