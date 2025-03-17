@@ -32,13 +32,8 @@ driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 try:
     # Open the locally hosted HTML5 app
     driver.get("http://localhost:8080")
-
     # Interact with the app (e.g., wait for 2 minutes)
-    time.sleep(10)  # Wait for 2 minutes
-    screenshot_path = os.path.join(download_dir, 'screenshot.png')
-    canvas_element = driver.find_element(By.TAG_NAME, 'canvas')
-
-    canvas_element.screenshot(screenshot_path);
+    time.sleep(20)  # Wait for 2 minutes
 finally:
     # Close the browser
     driver.quit()
