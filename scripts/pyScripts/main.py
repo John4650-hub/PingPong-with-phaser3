@@ -34,11 +34,13 @@ try:
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
     # List all entries in the directory
-    while True:
-        entries = os.listdir(download_dir)
-        print(entries)
-        if "end.png" in entries:
-            break
+    time.sleep(10)
+    if not True:
+        while True:
+            entries = os.listdir(download_dir)
+            print(entries)
+            if "end.png" in entries:
+                break
 
 finally:
     # Close the browser
