@@ -91,7 +91,7 @@ function create() {
   restartmsg.setScale(6);
   restartmsg.setVisible(false);
   this.time.addEvent({
-    delay:100
+    delay:100,
     callback:()=>{
       this.renderer.snapshot(img=>{
       const snap = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
