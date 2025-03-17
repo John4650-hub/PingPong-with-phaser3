@@ -90,7 +90,6 @@ function create() {
   restartmsg = this.add.text(this.physics.world.bounds.width / 12, this.physics.world.bounds.height / 2, 'click to restart')
   restartmsg.setScale(6);
   restartmsg.setVisible(false);
-  /*
   this.time.addEvent({
     delay:100
     callback:()=>{
@@ -117,7 +116,7 @@ function create() {
     },
     callbackScope:this,
     repeat:500
-  });**/
+  });
 }
 
 function update() {
