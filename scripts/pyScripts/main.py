@@ -37,5 +37,4 @@ frames = int(30*video_duration_sec)
 for i in range(1,frames+1):
     screenshot_path = os.path.join(download_dir,f"frame{i}.png")
     canvas_elem.screenshot(screenshot_path)
-    time.sleep(1)
 driver.quit()
