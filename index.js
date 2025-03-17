@@ -33,7 +33,6 @@ let victoryTxt2;
 let score2 = 0;
 let restartmsg;
 let gamepaused = false;
-let imageCount=0;
 
 function preload() {
   this.load.image('ball', './assets/ball.png');
@@ -90,45 +89,9 @@ function create() {
   restartmsg = this.add.text(this.physics.world.bounds.width / 12, this.physics.world.bounds.height / 2, 'click to restart')
   restartmsg.setScale(6);
   restartmsg.setVisible(false);
-
-  const snap = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
-  this.time.addEvent({
-    delay:100,
-    callback:()=>{
-      let screenshot_name=`frame${imageCount}.png`
-      downloadSnap(this,snap,screenshot_name)
-      imageCount+=1
-    },
-    callbackScope:this,
-    loop:true
-  });
 }
-function downloadSnap(ctx_phaser,snap,screenshot_name){
-      ctx_phaser.renderer.snapshot(img=>{
-      snap.draw(0,0,img);
-      const base64= snap.canvas.toDataURL();
-      const binString = atob(base64.split(',')[1])
-      const lenBinStr= binString.length;
-        const bytes = new Uint8Array(lenBinStr);
-        for( let i =0;i<lenBinStr;i++){
-          bytes[i] = binString.charCodeAt(i);
-        }
-        const blob = new Blob([bytes],{type:'image/png'})
-        const url=URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href=url
-        a.download=screenshot_name
-        document.body.appendChild(a)
-        a.click()
-        URL.revokeObjectURL(url)
-      })
-    }
 
 function update() {
-  if (gamepaused){
-    const snapEnd = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
-    downloadSnap(this,snapEnd,"end.png")
-  }
   if (gamepaused && score1==1 | score2 ==1){
 
   this.scene.restart();

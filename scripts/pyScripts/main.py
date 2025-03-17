@@ -32,9 +32,11 @@ driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 try:
     # Open the locally hosted HTML5 app
     driver.get("http://localhost:8080")
-    # Interact with the app (e.g., wait for 2 minutes)
-    # List all entries in the directory
-    time.sleep(3*60)
+    canvas_elem = driver.find_element(By.TAG_NAME,'canvas')
+    for i in range(1000):
+        screenshot_path = os.path.join(download_dir,f"frame{i}.png")
+        canvas_elem.screenshot(screenshot_path)
+        time.sleep(1)
 
 finally:
     # Close the browser
