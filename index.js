@@ -95,7 +95,16 @@ function create() {
   this.time.addEvent({
     delay:100,
     callback:()=>{
-      this.renderer.snapshot(img=>{
+      screenshot_name=`frame${imageCount}.png`
+      downloadSnap(this,snap,screenshot_name)
+      imageCount+=1
+    },
+    callbackScope:this,
+    repeat:500
+  });
+}
+function downloadSnap(ctx_phaser,snap,screenshot_name){
+      ctx_phaser.renderer.snapshot(img=>{
       snap.draw(0,0,img);
       const base64= snap.canvas.toDataURL();
       const binString = atob(base64.split(',')[1])
@@ -108,20 +117,20 @@ function create() {
         const url=URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href=url
-        a.download=`frame${imageCount}.png`
+        a.download=screenshot_name
         document.body.appendChild(a)
         a.click()
-        imageCount+=1;
         URL.revokeObjectURL(url)
       })
-    },
-    callbackScope:this,
-    repeat:500
-  });
-}
+    }
 
 function update() {
+  if (gamepaused){
+    const snapEnd = this.textures.createCanvas('snap',this.scale.width,this.scale.height);
+    downloadSnap(this,snapEnd,"end.png")
+  }
   if (gamepaused && score1==1 | score2 ==1){
+
   this.scene.restart();
 
 }

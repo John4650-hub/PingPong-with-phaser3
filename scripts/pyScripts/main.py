@@ -36,11 +36,7 @@ try:
     while True:
         # List all entries in the directory
         entries = os.listdir(download_dir)
-        # Filter out only files (excluding directories)
-        files = [entry for entry in entries if os.path.isfile(os.path.join(download_dir, entry))]
-        # Count the number of files
-        file_count = len(files)
-        if file_count>499:
+        if "end.png" in entries:
             break
 finally:
     # Close the browser
