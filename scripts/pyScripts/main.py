@@ -34,9 +34,9 @@ try:
     driver.get("http://localhost:8080")
     # Interact with the app (e.g., wait for 2 minutes)
     # List all entries in the directory
-    time.sleep(10)
-    if not True:
+    if True:
         while True:
+            time.sleep(5)
             entries = os.listdir(download_dir)
             print(entries)
             if "end.png" in entries:
