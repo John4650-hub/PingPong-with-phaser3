@@ -26,7 +26,7 @@ try:
     driver.get("http://localhost:8080")
 
     # Interact with the app (e.g., wait for 2 minutes)
-    time.sleep(120)  # Wait for 2 minutes
+    time.sleep(20)  # Wait for 2 minutes
 finally:
     # Close the browser
     driver.quit()
