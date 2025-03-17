@@ -14,7 +14,12 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 # Set download directory
 download_dir = os.path.join(os.getcwd(), 'downloads')
 os.makedirs(download_dir, exist_ok=True)
-prefs = {'download.default_directory': download_dir}
+prefs = {
+    'download.default_directory': download_dir,
+    'download.prompt_for_download': False,
+    'download.directory_upgrade': True,
+    'safebrowsing.enabled': True
+}
 chrome_options.add_experimental_option('prefs', prefs)
 
 # Set up Chrome driver
