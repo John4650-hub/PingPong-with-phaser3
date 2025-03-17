@@ -32,7 +32,8 @@ try:
 
     # Interact with the app (e.g., wait for 2 minutes)
     time.sleep(10)  # Wait for 2 minutes
-    driver.save_screenshot(download_dir);
+    screenshot_path = os.path.join(download_dir, 'screenshot.png')
+    driver.save_screenshot(screenshot_path);
 finally:
     # Close the browser
     driver.quit()
