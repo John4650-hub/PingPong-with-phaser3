@@ -33,7 +33,7 @@ driver.get("http://localhost:8080")
 canvas_elem = driver.find_element(By.TAG_NAME,'canvas')
 duration_minutes = 1
 video_duration_sec = 60*duration_minutes
-frames = int(1*video_duration_sec)
+frames = int(30*video_duration_sec)
 for i in range(1,frames+1):
     screenshot_path = os.path.join(download_dir,f"frame{i}.png")
     canvas_elem.screenshot(screenshot_path)
