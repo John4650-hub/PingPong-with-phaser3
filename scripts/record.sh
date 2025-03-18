@@ -2,11 +2,8 @@
 python scripts/pyScripts/main.py
 ulimit -s 500000
 cd downloads
-imageCount=$(find ./ -type f -name "*.png" | wc -l)
-files=()
-for i in $(seq 1 $imageCount); do
-  files+="frame$i.png "
-done
-ffmpeg -framerate 30 -pattern_type glob -i '*.png' -c:v h264_nvenc -preset fast -pix_fmt yuv420p output.mp4
+find ./ -type f -name *.png -printf "file '%p'\n" > filelist.txt
+cat filelist.txt
+ffmpeg -f concat -i filelist.txt -framerate 30 -c:v h264_nvenc -preset fast -pix_fmt yuv420p output.mp4
 cd ..
 gh release create "$1" downloads/output.mp4
